@@ -1,0 +1,71 @@
+.dashboard-card {
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+
+}
+
+.dashboard-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+.card {
+
+    border-radius: 12px;
+
+}
+
+.card-header {
+
+    border-bottom: 1px solid #eee;
+
+    font-weight: 600;
+
+}
+
+canvas {
+
+    width: 100% !important;
+
+    height: 350px !important;
+
+}
+
+h1 {
+
+    font-size: 40px;
+
+    font-weight: bold;
+
+}
+
+.container-fluid {
+
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0px);
+
+    }
+
+}

@@ -1,0 +1,397 @@
+<div class="container-fluid">
+
+    <!-- PAGE HEADER -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h3 class="fw-bold mb-1">
+                Dashboard
+            </h3>
+
+            <p class="text-muted mb-0">
+                Third Party Inspection Monitoring System
+            </p>
+
+        </div>
+
+        <div class="text-end">
+
+            <h6 class="mb-1">
+                Welcome,
+                <span class="text-primary">
+                    {{username}}
+                </span>
+            </h6>
+
+            <small class="text-muted">
+                State Water & Sanitation Mission
+            </small>
+
+        </div>
+
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+
+    <div class="row">
+
+        <!-- TOTAL REPORTS -->
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card dashboard-card shadow border-0 bg-primary text-white">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <h6>
+                                Total Reports
+                            </h6>
+
+                            <h1>
+                                {{totalReports}}
+                            </h1>
+
+                        </div>
+
+                        <div class="fs-1">
+
+                            📄
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PENDING -->
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card dashboard-card shadow border-0 bg-warning text-white">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <h6>
+                                Pending Reports
+                            </h6>
+
+                            <h1>
+                                {{pendingReports}}
+                            </h1>
+
+                        </div>
+
+                        <div class="fs-1">
+
+                            ⏳
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- APPROVED -->
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card dashboard-card shadow border-0 bg-success text-white">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <h6>
+                                Approved Reports
+                            </h6>
+
+                            <h1>
+                                {{approvedReports}}
+                            </h1>
+
+                        </div>
+
+                        <div class="fs-1">
+
+                            ✅
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- REJECTED -->
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card dashboard-card shadow border-0 bg-danger text-white">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <h6>
+                                Rejected Reports
+                            </h6>
+
+                            <h1>
+                                {{rejectedReports}}
+                            </h1>
+
+                        </div>
+
+                        <div class="fs-1">
+
+                            ❌
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CHARTS -->
+
+    <div class="row">
+
+        <!-- BAR CHART -->
+
+        <div class="col-md-6 mb-4">
+
+            <div class="card shadow border-0 h-100">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        Monthly Reports Overview
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <canvas id="barChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PIE CHART -->
+
+        <div class="col-md-6 mb-4">
+
+            <div class="card shadow border-0 h-100">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        Report Status Summary
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <canvas id="pieChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DISTRICT CHART -->
+
+    <div class="row">
+
+        <div class="col-md-12 mb-4">
+
+            <div class="card shadow border-0">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        District Wise Inspection Reports
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <canvas id="districtChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RECENT ACTIVITY -->
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="card shadow border-0">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        Recent Activity
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-striped">
+
+                            <thead class="table-light">
+
+                                <tr>
+
+                                    <th>Scheme</th>
+                                    <th>District</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Haridwar Pipe Water Scheme
+                                    </td>
+
+                                    <td>
+                                        Haridwar
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge bg-success">
+
+                                            Approved
+
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+                                        12-May-2026
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Dehradun Rural Scheme
+                                    </td>
+
+                                    <td>
+                                        Dehradun
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge bg-warning text-dark">
+
+                                            Pending
+
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+                                        11-May-2026
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Tehri Water Project
+                                    </td>
+
+                                    <td>
+                                        Tehri
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge bg-danger">
+
+                                            Rejected
+
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+                                        10-May-2026
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

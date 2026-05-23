@@ -1,0 +1,327 @@
+<div class="container-fluid">
+
+    <!-- HEADER -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h3>
+            Monthly Inspection Reports
+        </h3>
+
+        <!-- ADD BUTTON -->
+
+        <button
+            *ngIf="role == 'TPI'"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#reportModal">
+
+            Add Monthly Report
+
+        </button>
+
+    </div>
+
+    <!-- REPORT TABLE -->
+
+    <div class="card shadow border-0">
+
+        <div class="card-body table-responsive">
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Scheme</th>
+                        <th>District</th>
+                        <th>Month</th>
+                        <th>Status</th>
+                        <th>Remark</th>
+                        <th>Rejected By</th>
+                        <th>PDF</th>
+                        <th width="250">
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let report of reports">
+
+                        <td>
+                            {{report.Id}}
+                        </td>
+
+                        <td>
+                            {{report.schemeName}}
+                        </td>
+
+                        <td>
+                            {{report.district}}
+                        </td>
+
+                        <td>
+                            {{report.Division}}
+                        </td>
+
+                        <td>
+
+                            <span
+                                class="badge bg-success"
+                                *ngIf="report.status == 'APPROVED'">
+
+                                Approved
+
+                            </span>
+
+                            <span
+                                class="badge bg-warning text-dark"
+                                *ngIf="report.status == 'PENDING'">
+
+                                Pending
+
+                            </span>
+
+                            <span
+                                class="badge bg-danger"
+                                *ngIf="report.status == 'REJECTED'">
+
+                                Rejected
+
+                            </span>
+
+                        </td>
+
+                        <td>
+                            {{report.StateRemarks}}
+                        </td>
+
+                        <td>
+                            {{report.rejectedBy}}
+                        </td>
+
+                        <td>
+
+                            <a
+                                [href]="report.pdfPath"
+                                target="_blank"
+                                class="btn btn-sm btn-info">
+
+                                View PDF
+
+                            </a>
+
+                        </td>
+
+                        <td>
+
+                            <!-- EDIT -->
+
+                            <button
+                                *ngIf="
+                                role == 'tpi'
+                                &&
+                                report.status != 'Approved'
+                                "
+                                class="btn btn-warning btn-sm me-2"
+                                data-bs-toggle="modal"
+                                data-bs-target="#reportModal"
+                                (click)="editReport(report)">
+
+                                Edit
+
+                            </button>
+
+                            <!-- APPROVE -->
+
+                            <button
+                                *ngIf="
+                                role != 'tpi'
+                                &&
+                                report.status != 'Approved'
+                                "
+                                class="btn btn-success btn-sm me-2"
+                                (click)="approveReport(report)">
+
+                                Approve
+
+                            </button>
+
+                            <!-- REJECT -->
+
+                            <button
+                                *ngIf="
+                                role != 'tpi'
+                                &&
+                                report.status != 'Approved'
+                                "
+                                class="btn btn-danger btn-sm"
+                                (click)="rejectReport(report)">
+
+                                Reject
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- REPORT MODAL -->
+
+<div
+    class="modal fade"
+    id="reportModal">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <!-- HEADER -->
+
+            <div class="modal-header bg-primary text-white">
+
+                <h5 class="modal-title">
+
+                    Monthly Inspection Report
+
+                </h5>
+
+                <button
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+            <!-- BODY -->
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <!-- SCHEME -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Scheme Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="reportModel.schemeName">
+
+                    </div>
+
+                    <!-- DISTRICT -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            District
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="reportModel.district">
+
+                    </div>
+
+                    <!-- MONTH -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Month
+                        </label>
+
+                        <input
+                            type="month"
+                            class="form-control"
+                            [(ngModel)]="reportModel.month">
+
+                    </div>
+
+                    <!-- REMARK -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Remark
+                        </label>
+
+                        <textarea
+                            rows="3"
+                            class="form-control"
+                            [(ngModel)]="reportModel.remark">
+
+                        </textarea>
+
+                    </div>
+
+                    <!-- PDF -->
+
+                    <div class="col-md-12 mb-3">
+
+                        <label>
+                            Upload PDF
+                        </label>
+
+                        <input
+                            type="file"
+                            class="form-control"
+                            accept=".pdf"
+                            (change)="onFileChange($event)">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Close
+
+                </button>
+
+                <button
+                    class="btn btn-primary"
+                    (click)="saveReport()">
+
+                    Save Report
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

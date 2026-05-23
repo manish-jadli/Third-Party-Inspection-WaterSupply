@@ -1,0 +1,290 @@
+<div class="container-fluid">
+
+    <!-- PAGE HEADER -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h3>
+            User Management
+        </h3>
+
+        <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#userModal">
+
+            Add User
+
+        </button>
+
+    </div>
+
+    <!-- USER TABLE -->
+
+    <div class="card shadow border-0">
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>District</th>
+                        <th width="180">
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let user of users">
+
+                        <td>
+                            {{user.id}}
+                        </td>
+
+                        <td>
+                            {{user.name}}
+                        </td>
+
+                        <td>
+                            {{user.username}}
+                        </td>
+
+                        <td>
+                            {{user.email}}
+                        </td>
+
+                        <td>
+
+                            <span
+                                class="badge bg-primary">
+
+                                {{user.role}}
+
+                            </span>
+
+                        </td>
+
+                        <td>
+                            {{user.district}}
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-warning btn-sm me-2"
+                                (click)="editUser(user)">
+
+                                Edit
+
+                            </button>
+
+                            <button
+                                class="btn btn-danger btn-sm"
+                                (click)="deleteUser(user)">
+
+                                Delete
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- USER MODAL -->
+
+<div
+    class="modal fade"
+    id="userModal">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <!-- HEADER -->
+
+            <div class="modal-header bg-primary text-white">
+
+                <h5 class="modal-title">
+
+                    User Management
+
+                </h5>
+
+                <button
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+            <!-- BODY -->
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <!-- NAME -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="userModel.name">
+
+                    </div>
+
+                    <!-- USERNAME -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="userModel.username">
+
+                    </div>
+
+                    <!-- EMAIL -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            [(ngModel)]="userModel.email">
+
+                    </div>
+
+                    <!-- PASSWORD -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            class="form-control"
+                            [(ngModel)]="userModel.password">
+
+                    </div>
+
+                    <!-- ROLE -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            Role
+                        </label>
+
+                        <select
+                            class="form-select"
+                            [(ngModel)]="userModel.role">
+
+                            <option value="">
+                                Select Role
+                            </option>
+
+                            <option value="state">
+                                State User
+                            </option>
+
+                            <option value="division">
+                                Divisional User
+                            </option>
+
+                            <option value="district">
+                                District User
+                            </option>
+
+                            <option value="tpi">
+                                TPI User
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- DISTRICT -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>
+                            District
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="userModel.district">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Close
+
+                </button>
+
+                <button
+                    class="btn btn-primary"
+                    (click)="saveUser()">
+
+                    Save User
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
