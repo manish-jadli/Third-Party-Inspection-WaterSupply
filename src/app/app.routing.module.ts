@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './pages/auth/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ReportsComponent } from './pages/reports/reports.component';
-import { UserManagementComponent } from './pages/user-managment/user-managment.component';
+import { DashboardComponent } from './pages/app/dashboard/dashboard.component';
+import { ReportsComponent } from './pages/app/reports/reports.component';
+import { UserManagementComponent } from './pages/app/user-managment/user-managment.component';
 
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { PublicLayoutComponent } from './layout/public-layout/public-layout.component';
