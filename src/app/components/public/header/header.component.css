@@ -32,11 +32,6 @@
   color: #092248;
 }
 
-/* .top-header h1 span,
-.top-header h1::first-letter {
-  color: #095fc0;
-} */
-
 .top-header .top-color {
   color: #095fc0;
 }
@@ -81,14 +76,6 @@
 .main-nav .nav-item.active .nav-link,.router-link-active {
   background: #006ed3;
 }
-
-
-
-
-
-
-
-
 
 @media (max-width: 992px) {
   .top-header .text-center {
