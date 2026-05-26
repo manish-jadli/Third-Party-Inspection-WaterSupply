@@ -1,96 +1,20 @@
-<div
-  id="heroCarousel"
-  class="carousel slide carousel-fade"
-  data-bs-ride="carousel"
->
+<section class="hero" [style.background]="backgroundStyle">
+  <button class="slider-arrow left" (click)="prev()"><i class="bi bi-chevron-left"></i></button>
+  <button class="slider-arrow right" (click)="next()"><i class="bi bi-chevron-right"></i></button>
 
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-bs-target="#heroCarousel"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#heroCarousel"
-      data-bs-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-  </div>
-
-  <div class="carousel-inner">
-
-    <div class="carousel-item active">
-
-      <img
-        src="/assets/images/gallery1.png"
-        class="banner-img"
-      >
-
-      <div class="overlay"></div>
-
-      <div class="carousel-caption">
-
-        <h1>
-          Third Party Inspection System
-        </h1>
-
-        <p>
-          Smart Water Supply Monitoring Platform
-        </p>
-
-        <button class="btn btn-primary btn-lg">
-          Explore Dashboard
-        </button>
-
-      </div>
-
+  <div class="container">
+    <div class="hero-content" *ngIf="slides && slides.length">
+      <span>{{ slides[current].preTitle }}</span>
+      <h2 [innerHTML]="slides[current].title"></h2>
+      <p>{{ slides[current].description }}</p>
+      <button class="btn hero-btn" *ngIf="slides[current].buttonText">{{ slides[current].buttonText }} <i class="bi bi-arrow-right"></i></button>
     </div>
 
-    <div class="carousel-item">
-
-      <img
-        src="/assets/images/gallery2.png"
-        class="banner-img"
-      >
-
-      <div class="overlay"></div>
-
-      <div class="carousel-caption">
-
-        <h1>Realtime Monitoring</h1>
-
-        <p>
-          Track every scheme across Uttarakhand
-        </p>
-
-      </div>
-
+    <div class="hero-dots">
+      <ng-container *ngFor="let s of slides; let i = index">
+        <span [class.active]="i === current" (click)="goTo(i)"></span>
+      </ng-container>
     </div>
-
   </div>
 
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#heroCarousel"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#heroCarousel"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-
-</div>
+</section>
