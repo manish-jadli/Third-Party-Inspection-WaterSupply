@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ReportsComponent } from './pages/reports/reports.component';
 import { UserManagementComponent } from './pages/user-managment/user-managment.component';
@@ -16,12 +16,24 @@ import { SchemesComponent } from './pages/public/schemes/schemes.component';
 import { InspectionsComponent } from './pages/public/inspections/inspections.component';
 import { NotificationsComponent } from './pages/public/notifications/notifications.component';
 import { ContactComponent } from './pages/public/contact/contact.component';
+import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
+import { ForgetPasswordComponent } from './pages/auth/forget-password/forget-password.component';
 
 const routes: Routes = [
+  //auth code
   {
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: 'sign-up',
+    component: SignUpComponent,
+  },
+    {
+    path: 'forget-password',
+    component: ForgetPasswordComponent,
+  },
+  //end
   //public part code
   {
     path: '',

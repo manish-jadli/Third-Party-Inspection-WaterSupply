@@ -1,0 +1,24 @@
+
+.footer {
+  height: 68px;
+  padding: 14px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer img {
+  height: 34px;
+}
+
+.footer span {
+  font-size: 10px;
+  color: #0f172a;
+  line-height: 1.4;
+}

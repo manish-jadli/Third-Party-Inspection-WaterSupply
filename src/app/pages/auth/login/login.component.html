@@ -1,0 +1,111 @@
+<!-- <div class="container mt-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-4">
+
+      <div class="card shadow">
+
+        <div class="card-header bg-primary text-white text-center">
+
+          <h4>TPI Inspection Login</h4>
+
+        </div>
+
+        <div class="card-body">
+
+          <div class="mb-3">
+
+            <label>Username</label>
+
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="loginData.Email">
+
+          </div>
+
+          <div class="mb-3">
+
+            <label>Password</label>
+
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="loginData.PasswordHash">
+
+          </div>
+
+          <button
+            class="btn btn-primary w-100"
+            (click)="login()">
+
+            Login
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div> -->
+
+<div class="page-bg py-4">
+  <div class="container-fluid px-4">
+    <div class="row justify-content-center">
+
+      <!-- Login -->
+      <div class="col-12 col-lg-4">
+        <div class="auth-shell">
+          <app-header></app-header>
+
+          <div class="auth-card">
+            <h4>Welcome Back!</h4>
+            <p>Login to your account to continue</p>
+
+            <form>
+              <label>Username / Email</label>
+              <div class="input-box">
+                <i class="bi bi-person"></i>
+                <input type="text" placeholder="Enter your email or username">
+              </div>
+
+              <label>Password</label>
+              <div class="input-box">
+                <i class="bi bi-person"></i>
+                <input type="password" placeholder="Enter your password">
+                <i class="bi bi-eye"></i>
+              </div>
+
+              <div class="text-end mb-3">
+                <a routerLink="/forget-password">Forgot Password?</a>
+              </div>
+
+              <button class="primary-btn">
+                Login <i class="bi bi-arrow-right"></i>
+              </button>
+
+              <div class="or-line"><span>OR</span></div>
+
+              <button type="button" class="google-btn">
+                <span class="google-g">G</span> Login with Google
+              </button>
+
+              <div class="bottom-text">
+                Don't have an account? <a routerLink="/sign-up">Sign Up</a>
+              </div>
+            </form>
+          </div>
+
+          <app-footer></app-footer>
+        </div>
+      </div>
+       <!--End-->
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+
+<div class="page-bg py-4">
+  <div class="container-fluid px-4">
+    <div class="row justify-content-center">
+
+      <!-- Register -->
+      <div class="col-12 col-lg-4">
+        <div class="auth-shell">
+          <app-header></app-header>
+
+          <div class="auth-card signup-card">
+            <h4>Create Account</h4>
+            <p>Register to get started</p>
+
+            <form>
+              <div class="row g-3">
+                <div class="col-6">
+                  <label>Full Name</label>
+                  <div class="input-box">
+                    <i class="bi bi-person"></i>
+                    <input placeholder="Enter your full name">
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <label>Mobile Number</label>
+                  <div class="input-box">
+                    <i class="bi bi-telephone"></i>
+                    <input placeholder="Enter mobile number">
+                  </div>
+                </div>
+              </div>
+
+              <label>Email Address</label>
+              <div class="input-box">
+                <i class="bi bi-envelope"></i>
+                <input placeholder="Enter your email">
+              </div>
+
+              <label>Organization / Agency</label>
+              <div class="input-box">
+                <i class="bi bi-building"></i>
+                <input placeholder="Enter organization name">
+                <i class="bi bi-chevron-down"></i>
+              </div>
+
+              <label>Username</label>
+              <div class="input-box">
+                <i class="bi bi-person"></i>
+                <input placeholder="Choose a username">
+              </div>
+
+              <div class="row g-3">
+                <div class="col-6">
+                  <label>Password</label>
+                  <div class="input-box">
+                    <i class="bi bi-lock"></i>
+                    <input type="password" placeholder="Create a password">
+                    <i class="bi bi-eye"></i>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <label>Confirm Password</label>
+                  <div class="input-box">
+                    <i class="bi bi-lock"></i>
+                    <input type="password" placeholder="Confirm your password">
+                    <i class="bi bi-eye"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="terms">
+                <input type="checkbox">
+                <span>
+                  I agree to the <a href="#">Terms & Conditions</a> and
+                  <a href="#">Privacy Policy</a>
+                </span>
+              </div>
+
+              <button class="primary-btn">
+                Sign Up <i class="bi bi-arrow-right"></i>
+              </button>
+
+              <div class="bottom-text">
+                Already have an account? <a routerLink="/login">Login</a>
+              </div>
+            </form>
+          </div>
+
+          <app-footer></app-footer>
+        </div>
+      </div>
+       <!--End-->
+
+    </div>
+  </div>
+</div>

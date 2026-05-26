@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../../../components/auth/header/header.component';
+import { FooterComponent } from '../../../components/auth/footer/footer.component';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-forget-password',
   standalone: true,
-  imports: [FormsModule],
-  templateUrl: './login.component.html'
+  imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent, RouterLink],
+  templateUrl: './forget-password.component.html',
+  styleUrls: ['./forget-password.component.css'],
 })
-export class LoginComponent {
+export class ForgetPasswordComponent {
 
   loginData: any = {
     Email: '',

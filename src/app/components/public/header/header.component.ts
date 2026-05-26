@@ -12,7 +12,7 @@ import { SchemesComponent } from '../../../pages/public/schemes/schemes.componen
 @Component({
   selector: 'app-header',
   standalone:true,
-  imports: [CommonModule, AboutUsComponent, DashboardComponent, ContactComponent, DocumentsComponent, InspectionsComponent, NotificationsComponent, SchemesComponent, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
