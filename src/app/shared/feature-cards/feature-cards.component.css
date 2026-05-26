@@ -1,0 +1,57 @@
+.feature-section {
+  padding: 40px;
+  background: #f5f8fc;
+}
+.feature-section .col-lg-2{
+    width:20%;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  transition: 0.4s;
+  min-height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.icon {
+  width: 85px;
+  height: 85px;
+  border-radius: 18px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icon i {
+  font-size: 38px;
+  color: white;
+}
+
+.blue {
+  background: #1e88e5;
+}
+
+.green {
+  background: #43a047;
+}
+
+.purple {
+  background: #8e24aa;
+}
+
+.orange {
+  background: #fb8c00;
+}
+
+.cyan {
+  background: #00acc1;
+}

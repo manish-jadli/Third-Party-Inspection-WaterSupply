@@ -1,7 +1,10 @@
-import { platformBrowser } from '@angular/platform-browser';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { importProvidersFrom } from '@angular/core';
+import { AppComponent } from './app/app.component';
+import { AppRoutingModule } from './app/app.routing.module';
+import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
-import { AppModule } from './app/app.module';
-
-platformBrowser()
-  .bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [provideHttpClient(), importProvidersFrom(AppRoutingModule, FormsModule)],
+}).catch((err) => console.error(err));

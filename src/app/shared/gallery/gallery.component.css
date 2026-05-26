@@ -1,0 +1,27 @@
+.gallery-section {
+  padding: 40px;
+  background: white;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 20px;
+}
+
+.gallery-row img {
+  width: 20%;
+  height: 220px;
+  border-radius: 14px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.gallery-row img:hover {
+  transform: scale(1.05);
+}

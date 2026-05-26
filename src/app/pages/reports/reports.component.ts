@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {

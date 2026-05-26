@@ -7,48 +7,85 @@ import { ReportsComponent } from './pages/reports/reports.component';
 import { UserManagementComponent } from './pages/user-managment/user-managment.component';
 
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { PublicLayoutComponent } from './layout/public-layout/public-layout.component';
+import { HomeComponent } from './pages/public/home/home.component';
+import { AboutUsComponent } from './pages/public/about-us/about-us.component';
+import { DashboardsComponent } from './pages/public/dashboards/dashboards.component';
+import { DocumentsComponent } from './pages/public/documents/documents.component';
+import { SchemesComponent } from './pages/public/schemes/schemes.component';
+import { InspectionsComponent } from './pages/public/inspections/inspections.component';
+import { NotificationsComponent } from './pages/public/notifications/notifications.component';
+import { ContactComponent } from './pages/public/contact/contact.component';
 
 const routes: Routes = [
-
   {
-    path: '',
-    component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
-
+  //public part code
   {
     path: '',
-    component: MainLayoutComponent,
+    component: PublicLayoutComponent,
     children: [
-
+      {
+        path: '',
+        component: HomeComponent,
+      },
+      {
+        path: 'about-us',
+        component: AboutUsComponent,
+      },
+      {
+        path: 'documents',
+        component: DocumentsComponent,
+      },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardsComponent,
       },
-
+      {
+        path: 'schemes',
+        component: SchemesComponent,
+      },
+      {
+        path: 'inspections',
+        component: InspectionsComponent,
+      },
+      {
+        path: 'notifications',
+        component: NotificationsComponent,
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+      },
+    ],
+  },
+  //end
+  //app part code
+  {
+    path: 'app',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
       {
         path: 'reports',
-        component: ReportsComponent
+        component: ReportsComponent,
       },
-
       {
         path: 'user-management',
-        component: UserManagementComponent
-      }
-
-    ]
-  }
-
+        component: UserManagementComponent,
+      },
+    ],
+  },
+  //end
 ];
 
 @NgModule({
-
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-
-  exports: [
-    RouterModule
-  ]
-
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
