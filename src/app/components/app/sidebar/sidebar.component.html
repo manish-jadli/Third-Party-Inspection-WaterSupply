@@ -1,70 +1,91 @@
-<div id="sidebar" class="sidebar bg-dark text-white shadow">
+<aside class="sidebar">
+  <div class="brand">
+    <div class="logo"><i class="bi bi-droplet-fill"></i></div>
+    <div>
+      <h5>Jal Jeevan Mission</h5>
+      <span>Uttarakhand</span>
+    </div>
+  </div>
 
-  <!-- LOGO -->
+  <nav>
+    <a *ngFor="let item of menu" [routerLink]="item.route" routerLinkActive="active">
+      <i class="bi" [ngClass]="item.icon"></i>
+      <span>{{ item.label }}</span>
+    </a>
+  </nav>
 
-  <div class="text-center p-3 border-bottom">
+  <div class="dropdown role-dropdown">
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Emblem_of_Uttarakhand.svg" width="80"
-      class="sidebar-logo">
+    <button class="role-box dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-person-fill"></i>
 
-    <h5 class="mt-2 sidebar-title">
-      TPI System
-    </h5>
+      <div>
+        <small>Role</small>
+        <strong>Super Admin</strong>
+      </div>
+    </button>
+
+    <div class="dropdown-menu role-menu">
+
+      <div class="role-header">
+        <h6>User Information</h6>
+        <p>Access & Permissions</p>
+      </div>
+
+      <div class="role-content">
+
+        <div class="role-item">
+          <i class="bi bi-person-badge"></i>
+
+          <div>
+            <strong>Role</strong>
+            <small>Super Admin</small>
+          </div>
+        </div>
+
+        <div class="role-item">
+          <i class="bi bi-building"></i>
+
+          <div>
+            <strong>Department</strong>
+            <small>Water Supply Mission</small>
+          </div>
+        </div>
+
+        <div class="role-item">
+          <i class="bi bi-shield-check"></i>
+
+          <div>
+            <strong>Permissions</strong>
+            <small>Full Access Control</small>
+          </div>
+        </div>
+
+        <div class="role-item">
+          <i class="bi bi-geo-alt"></i>
+
+          <div>
+            <strong>Location</strong>
+            <small>Uttarakhand HQ</small>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="role-footer">
+        <button class="manage-btn">
+          <i class="bi bi-gear"></i>
+          Manage Roles
+        </button>
+      </div>
+
+    </div>
 
   </div>
 
-  <!-- MENU -->
 
-  <ul class="nav flex-column p-3">
-
-    <li class="nav-item mb-2">
-
-      <a routerLink="/app/dashboard" routerLinkActive="active-link" class="nav-link text-white">
-
-        <span class="menu-icon">
-          📊
-        </span>
-
-        <span class="menu-text">
-          Dashboard
-        </span>
-
-      </a>
-
-    </li>
-
-    <li class="nav-item mb-2">
-
-      <a routerLink="/app/reports" routerLinkActive="active-link" class="nav-link text-white">
-
-        <span class="menu-icon">
-          📄
-        </span>
-
-        <span class="menu-text">
-          Reports
-        </span>
-
-      </a>
-
-    </li>
-
-    <li class="nav-item mb-2">
-
-      <a routerLink="/app/user-management" routerLinkActive="active-link" class="nav-link text-white">
-
-        <span class="menu-icon">
-          👥
-        </span>
-
-        <span class="menu-text">
-          User Management
-        </span>
-
-      </a>
-
-    </li>
-
-  </ul>
-
-</div>
+  <a class="support">
+    <i class="bi bi-headset"></i>
+    Help & Support
+  </a>
+</aside>

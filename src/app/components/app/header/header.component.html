@@ -1,57 +1,143 @@
-<div class="bg-primary text-white p-3 shadow-sm">
-
-  <div class="d-flex justify-content-between align-items-center">
-
-    <!-- LEFT -->
-
-    <div class="d-flex align-items-center">
-
-      <!-- TOGGLE BUTTON -->
-
-      <button class="btn btn-light me-3" (click)="toggleSidebar()">
-        ☰
-      </button>
-
-      <!-- LOGO -->
-
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Emblem_of_Uttarakhand.svg" width="55" class="me-3">
-
+<main>
+  <header class="topbar">
+    <div class="title-wrap">
+      <button class="icon-btn"><i class="bi bi-list"></i></button>
       <div>
+        <h4>Third Party Inspection</h4>
+        <p>Water Supply Schemes, Uttarakhand</p>
+      </div>
+    </div>
 
-        <h4 class="mb-0">
-          State Water & Sanitation Mission
-        </h4>
+    <div class="search">
+      <i class="bi bi-search"></i>
+      <input placeholder="Search schemes, districts, inspections..." />
+    </div>
 
-        <small>
-          Uttarakhand Government
-        </small>
+    <div class="top-actions">
+
+      <!--Notification code-->
+      <div class="dropdown notification-dropdown">
+        <button class="bell" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-bell"></i>
+          <span>12</span>
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-end notification-menu p-0">
+
+          <div class="notification-header">
+            <h6>Notifications</h6>
+            <small>12 New</small>
+          </div>
+
+          <div class="notification-body">
+
+            <div class="notification-item">
+              <div class="icon bg-primary">
+                <i class="bi bi-droplet"></i>
+              </div>
+
+              <div class="content">
+                <strong>New Inspection Assigned</strong>
+                <p>Haridwar Water Supply Scheme</p>
+                <small>2 mins ago</small>
+              </div>
+            </div>
+
+            <div class="notification-item">
+              <div class="icon bg-success">
+                <i class="bi bi-check-circle"></i>
+              </div>
+
+              <div class="content">
+                <strong>Inspection Approved</strong>
+                <p>Dehradun Zone completed</p>
+                <small>10 mins ago</small>
+              </div>
+            </div>
+
+            <div class="notification-item">
+              <div class="icon bg-warning">
+                <i class="bi bi-exclamation-circle"></i>
+              </div>
+
+              <div class="content">
+                <strong>Pending Verification</strong>
+                <p>3 reports need approval</p>
+                <small>30 mins ago</small>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="notification-footer">
+            <a href="#">View All Notifications</a>
+          </div>
+
+        </div>
+      </div>
+      <!--END-->
+
+      <!--Profile code-->
+      <div class="dropdown profile-dropdown">
+
+        <button class="profile-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://i.pravatar.cc/80?img=12" />
+
+          <div class="user-info">
+            <strong>Er. A. Sharma</strong>
+            <small>Super Admin</small>
+          </div>
+
+          <i class="bi bi-chevron-down"></i>
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-end profile-menu">
+
+          <div class="profile-header">
+            <img src="https://i.pravatar.cc/100?img=12" />
+
+            <h6>Er. A. Sharma</h6>
+            <p>Super Admin</p>
+          </div>
+
+          <div class="profile-links">
+
+            <a class="dropdown-item" href="#">
+              <i class="bi bi-person-circle"></i>
+              My Profile
+            </a>
+
+            <a class="dropdown-item" href="#">
+              <i class="bi bi-gear"></i>
+              Settings
+            </a>
+
+            <a class="dropdown-item" href="#">
+              <i class="bi bi-shield-check"></i>
+              Admin Panel
+            </a>
+
+            <a class="dropdown-item" href="#">
+              <i class="bi bi-bell"></i>
+              Notifications
+            </a>
+
+            <hr />
+
+            <button class="dropdown-item logout-btn" (click)="logout()">
+              <i class="bi bi-box-arrow-right"></i>
+              Logout
+            </button>
+
+          </div>
+
+        </div>
 
       </div>
+      <!--END-->
 
     </div>
+  </header>
 
-    <!-- RIGHT -->
 
-    <div class="dropdown">
-
-      <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-        👤 {{username}}
-      </button>
-
-      <ul class="dropdown-menu dropdown-menu-end">
-
-        <li>
-
-          <button class="dropdown-item text-danger" (click)="logout()">
-            Logout
-          </button>
-
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</div>
+</main>

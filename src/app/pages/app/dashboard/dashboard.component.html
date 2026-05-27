@@ -1,397 +1,193 @@
-<div class="container-fluid">
+<div>
 
-    <!-- PAGE HEADER -->
+  <section class="stats-grid">
+    <div class="stat-card" *ngFor="let s of stats">
+      <div class="stat-icon" [ngClass]="s[4]">
+        <i class="bi" [ngClass]="s[0]"></i>
+      </div>
+      <div>
+        <p>{{ s[1] }}</p>
+        <h3>{{ s[2] }}</h3>
+        <small>{{ s[3] }}</small>
+      </div>
+    </div>
+  </section>
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+  <section class="dashboard-grid">
 
-        <div>
+    <div>
 
-            <h3 class="fw-bold mb-1">
-                Dashboard
-            </h3>
 
-            <p class="text-muted mb-0">
-                Third Party Inspection Monitoring System
-            </p>
-
+      <div class="card-panel map-panel mb-3">
+        <div class="panel-head">
+          <h6>Scheme Status Overview</h6>
+          <div>
+            <select>
+              <option>All Districts</option>
+            </select>
+            <button><i class="bi bi-funnel"></i></button>
+          </div>
         </div>
 
-        <div class="text-end">
+        <div class="map-box">
+          <div class="fake-map">
+            <span class="d1">Uttarkashi</span>
+            <span class="d2">Chamoli</span>
+            <span class="d3">Pauri Garhwal</span>
+            <span class="d4">Nainital</span>
+            <span class="d5">Haridwar</span>
+            <span class="d6">Bageshwar</span>
+          </div>
 
-            <h6 class="mb-1">
-                Welcome,
-                <span class="text-primary">
-                    {{username}}
-                </span>
-            </h6>
+          <div class="legend">
+            <p><b class="excellent"></b> Excellent (80-100%)</p>
+            <p><b class="good"></b> Good (60-80%)</p>
+            <p><b class="average"></b> Average (40-60%)</p>
+            <p><b class="poor"></b> Poor (20-40%)</p>
+            <p><b class="critical"></b> Critical (0-20%)</p>
+          </div>
 
-            <small class="text-muted">
-                State Water & Sanitation Mission
-            </small>
-
+          <div class="map-tools">
+            <button>+</button>
+            <button>-</button>
+            <button><i class="bi bi-layers"></i></button>
+          </div>
         </div>
+      </div>
+
+      <div class="card-panel inspections" style="height:335px">
+        <div class="panel-head">
+          <h6>Recent Inspections</h6>
+          <a>View All</a>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Scheme Name</th>
+              <th>District</th>
+              <th>Inspector</th>
+              <th>Status</th>
+              <th>Inspection Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of inspections">
+              <td>{{ i[0] }}</td>
+              <td>{{ i[1] }}</td>
+              <td>{{ i[2] }}</td>
+              <td><span class="badge-status" [ngClass]="i[3].toLowerCase().replaceAll(' ', '-')">{{ i[3] }}</span></td>
+              <td>{{ i[4] }}</td>
+              <td><i class="bi bi-eye"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
 
-    <!-- DASHBOARD CARDS -->
+    <div>
 
-    <div class="row">
-
-        <!-- TOTAL REPORTS -->
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card dashboard-card shadow border-0 bg-primary text-white">
-
-                <div class="card-body">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <div>
-
-                            <h6>
-                                Total Reports
-                            </h6>
-
-                            <h1>
-                                {{totalReports}}
-                            </h1>
-
-                        </div>
-
-                        <div class="fs-1">
-
-                            📄
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+      <div class="card-panel district-panel mb-3">
+        <div class="panel-head">
+          <h6>District Performance</h6>
+          <a>View All</a>
         </div>
 
-        <!-- PENDING -->
+        <table>
+          <thead>
+            <tr>
+              <th>District</th>
+              <th>Compliance</th>
+              <th>Schemes</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of districts">
+              <td>{{ d[0] }}</td>
+              <td [class]="d[3]">{{ d[1] }}</td>
+              <td>{{ d[2] }}</td>
+              <td><span class="spark" [class]="d[3]"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <div class="col-md-3 mb-4">
-
-            <div class="card dashboard-card shadow border-0 bg-warning text-white">
-
-                <div class="card-body">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <div>
-
-                            <h6>
-                                Pending Reports
-                            </h6>
-
-                            <h1>
-                                {{pendingReports}}
-                            </h1>
-
-                        </div>
-
-                        <div class="fs-1">
-
-                            ⏳
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+      <div class="card-panel chart-panel">
+        <div class="panel-head">
+          <h6>Inspection Progress Over Time</h6>
+          <select>
+            <option>This Month</option>
+          </select>
         </div>
 
-        <!-- APPROVED -->
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card dashboard-card shadow border-0 bg-success text-white">
-
-                <div class="card-body">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <div>
-
-                            <h6>
-                                Approved Reports
-                            </h6>
-
-                            <h1>
-                                {{approvedReports}}
-                            </h1>
-
-                        </div>
-
-                        <div class="fs-1">
-
-                            ✅
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="chart">
+          <svg viewBox="0 0 560 240">
+            <polyline class="line green"
+              points="20,170 70,130 120,105 170,92 220,82 270,74 320,68 370,62 420,57 470,52 520,48" />
+            <polyline class="line blue"
+              points="20,220 70,185 120,160 170,145 220,138 270,132 320,125 370,116 420,107 470,98 520,88" />
+            <polyline class="line red"
+              points="20,235 70,220 120,210 170,205 220,198 270,192 320,185 370,178 420,170 470,164 520,156" />
+          </svg>
         </div>
-
-        <!-- REJECTED -->
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card dashboard-card shadow border-0 bg-danger text-white">
-
-                <div class="card-body">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <div>
-
-                            <h6>
-                                Rejected Reports
-                            </h6>
-
-                            <h1>
-                                {{rejectedReports}}
-                            </h1>
-
-                        </div>
-
-                        <div class="fs-1">
-
-                            ❌
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
+      </div>
 
     </div>
 
-    <!-- CHARTS -->
-
-    <div class="row">
-
-        <!-- BAR CHART -->
-
-        <div class="col-md-6 mb-4">
-
-            <div class="card shadow border-0 h-100">
-
-                <div class="card-header bg-white">
-
-                    <h5 class="mb-0">
-                        Monthly Reports Overview
-                    </h5>
-
-                </div>
-
-                <div class="card-body">
-
-                    <canvas id="barChart"></canvas>
-
-                </div>
-
-            </div>
-
+    <div class="right-stack">
+      <div class="card-panel">
+        <div class="panel-head">
+          <h6>Alerts & Notifications</h6>
+          <a>View All</a>
         </div>
 
-        <!-- PIE CHART -->
+        <div class="alert-item" *ngFor="let a of alerts" [ngClass]="a[4]">
+          <i class="bi" [ngClass]="a[0]"></i>
+          <div>
+            <strong>{{ a[1] }}</strong>
+            <p>{{ a[2] }}</p>
+          </div>
+          <small>{{ a[3] }}</small>
+        </div>
+      </div>
 
-        <div class="col-md-6 mb-4">
-
-            <div class="card shadow border-0 h-100">
-
-                <div class="card-header bg-white">
-
-                    <h5 class="mb-0">
-                        Report Status Summary
-                    </h5>
-
-                </div>
-
-                <div class="card-body">
-
-                    <canvas id="pieChart"></canvas>
-
-                </div>
-
-            </div>
-
+      <div class="card-panel summary">
+        <div class="panel-head">
+          <h6>Inspection Summary</h6>
+          <a>View Report</a>
         </div>
 
+        <div class="summary-body">
+          <div class="donut">
+            <span>386<br><small>Total</small></span>
+          </div>
+          <ul>
+            <li><b class="completed"></b> Completed <strong>862 (62%)</strong></li>
+            <li><b class="progress"></b> In Progress <strong>386 (28%)</strong></li>
+            <li><b class="start"></b> Yet to Start <strong>140 (10%)</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-panel quick">
+        <div class="panel-head">
+          <h6>Quick Actions</h6>
+        </div>
+
+        <div class="quick-grid">
+          <button><i class="bi bi-plus-circle-fill"></i><span>New Inspection</span></button>
+          <button><i class="bi bi-qr-code"></i><span>Scan QR Code</span></button>
+          <button><i class="bi bi-upload"></i><span>Upload Report</span></button>
+          <button><i class="bi bi-file-earmark-plus"></i><span>Add Scheme</span></button>
+          <button><i class="bi bi-file-text-fill"></i><span>NCR Entry</span></button>
+          <button><i class="bi bi-file-earmark-bar-graph"></i><span>Generate Report</span></button>
+        </div>
+      </div>
     </div>
 
-    <!-- DISTRICT CHART -->
-
-    <div class="row">
-
-        <div class="col-md-12 mb-4">
-
-            <div class="card shadow border-0">
-
-                <div class="card-header bg-white">
-
-                    <h5 class="mb-0">
-                        District Wise Inspection Reports
-                    </h5>
-
-                </div>
-
-                <div class="card-body">
-
-                    <canvas id="districtChart"></canvas>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- RECENT ACTIVITY -->
-
-    <div class="row">
-
-        <div class="col-md-12">
-
-            <div class="card shadow border-0">
-
-                <div class="card-header bg-white">
-
-                    <h5 class="mb-0">
-                        Recent Activity
-                    </h5>
-
-                </div>
-
-                <div class="card-body">
-
-                    <div class="table-responsive">
-
-                        <table class="table table-bordered table-striped">
-
-                            <thead class="table-light">
-
-                                <tr>
-
-                                    <th>Scheme</th>
-                                    <th>District</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <td>
-                                        Haridwar Pipe Water Scheme
-                                    </td>
-
-                                    <td>
-                                        Haridwar
-                                    </td>
-
-                                    <td>
-
-                                        <span class="badge bg-success">
-
-                                            Approved
-
-                                        </span>
-
-                                    </td>
-
-                                    <td>
-                                        12-May-2026
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        Dehradun Rural Scheme
-                                    </td>
-
-                                    <td>
-                                        Dehradun
-                                    </td>
-
-                                    <td>
-
-                                        <span class="badge bg-warning text-dark">
-
-                                            Pending
-
-                                        </span>
-
-                                    </td>
-
-                                    <td>
-                                        11-May-2026
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        Tehri Water Project
-                                    </td>
-
-                                    <td>
-                                        Tehri
-                                    </td>
-
-                                    <td>
-
-                                        <span class="badge bg-danger">
-
-                                            Rejected
-
-                                        </span>
-
-                                    </td>
-
-                                    <td>
-                                        10-May-2026
-                                    </td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+  </section>
 
 </div>

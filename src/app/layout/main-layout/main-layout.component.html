@@ -1,29 +1,13 @@
-<div class="layout-container">
+<div class="app-shell">
+  <app-sidebar class="app-shell"></app-sidebar>
 
-    <!-- SIDEBAR -->
+  <main class="main">
 
-    <app-sidebar></app-sidebar>
+    <app-header></app-header>
 
-    <!-- MAIN CONTENT -->
+    <router-outlet></router-outlet>
 
-    <div class="main-wrapper">
+    <app-footer></app-footer>
 
-        <!-- HEADER -->
-
-        <app-header></app-header>
-
-        <!-- PAGE CONTENT -->
-
-        <div class="page-content">
-
-            <router-outlet></router-outlet>
-
-        </div>
-
-        <!-- FOOTER -->
-
-        <app-footer></app-footer>
-
-    </div>
-
+  </main>
 </div>

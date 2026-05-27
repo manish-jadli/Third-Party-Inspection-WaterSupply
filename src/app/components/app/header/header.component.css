@@ -303,6 +303,7 @@ nav a.active {
 
 .map-box {
   height: 408px;
+  /* height: 390px; */
   position: relative;
   background: #fbfcff;
   border-radius: 8px;
@@ -388,7 +389,10 @@ nav a.active {
   background: #29b857;
 }
 
-/* .good { background: #87d765; } */
+.good {
+  background: #87d765;
+}
+
 .average {
   background: #f8c442;
 }
@@ -696,4 +700,233 @@ footer {
   .right-stack {
     grid-column: span 1;
   }
+}
+
+
+.notification-dropdown {
+  position: relative;
+}
+
+.notification-menu {
+  width: 360px;
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-top: 14px;
+}
+
+.notification-header {
+  padding: 16px 20px;
+  background: #0d6efd;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-header h6 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.notification-body {
+  max-height: 350px;
+  overflow-y: auto;
+  background: white;
+}
+
+.notification-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #f1f1f1;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.notification-item:hover {
+  background: #f8f9fa;
+}
+
+.notification-item .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.notification-item .content {
+  flex: 1;
+}
+
+.notification-item .content strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.notification-item .content p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.notification-item .content small {
+  color: #999;
+  font-size: 11px;
+}
+
+.notification-footer {
+  padding: 14px;
+  text-align: center;
+  background: #fff;
+}
+
+.notification-footer a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+.bell {
+  position: relative;
+  border: none;
+  background: white;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  font-size: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.bell span {
+  position: absolute;
+  top: -5px;
+  right: -2px;
+  background: red;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-btn {
+  border: none;
+  background: white;
+  border-radius: 16px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.profile-btn:hover {
+  background: #f8f9fa;
+}
+
+.profile-btn img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.user-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.user-info small {
+  color: #777;
+  font-size: 12px;
+}
+
+.profile-menu {
+  width: 300px;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 14px;
+  padding: 0;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #0d6efd, #0a58ca);
+  color: white;
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.profile-header img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.profile-header h6 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile-header p {
+  margin: 4px 0 0;
+  opacity: 0.9;
+  font-size: 13px;
+}
+
+.profile-links {
+  padding: 10px;
+  background: white;
+}
+
+.profile-links .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.profile-links .dropdown-item i {
+  font-size: 18px;
+}
+
+.profile-links .dropdown-item:hover {
+  background: #f3f6ff;
+  color: #0d6efd;
+}
+
+.logout-btn {
+  color: #dc3545 !important;
+}
+
+.logout-btn:hover {
+  background: #fff2f2 !important;
 }
