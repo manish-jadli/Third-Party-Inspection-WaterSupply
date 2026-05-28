@@ -12,12 +12,14 @@ import { HomeComponent } from './pages/public/home/home.component';
 import { AboutUsComponent } from './pages/public/about-us/about-us.component';
 import { DashboardsComponent } from './pages/public/dashboards/dashboards.component';
 import { DocumentsComponent } from './pages/public/documents/documents.component';
-import { SchemesComponent } from './pages/public/schemes/schemes.component';
+import { SchemeComponent } from './pages/public/scheme/scheme.component';
 import { InspectionsComponent } from './pages/public/inspections/inspections.component';
 import { NotificationsComponent } from './pages/public/notifications/notifications.component';
 import { ContactComponent } from './pages/public/contact/contact.component';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { ForgetPasswordComponent } from './pages/auth/forget-password/forget-password.component';
+import { SchemesComponent } from './pages/app/schemes/schemes.component';
+import { InspectionComponent } from './pages/app/inspection/inspection.component';
 
 const routes: Routes = [
   //auth code
@@ -56,8 +58,8 @@ const routes: Routes = [
         component: DashboardsComponent,
       },
       {
-        path: 'schemes',
-        component: SchemesComponent,
+        path: 'scheme',
+        component: SchemeComponent,
       },
       {
         path: 'inspections',
@@ -82,6 +84,14 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+      },
+         {
+        path: 'schemes',
+        component: SchemesComponent,
+      },
+        {
+        path: 'inspection',
+        component: InspectionComponent,
       },
       {
         path: 'reports',

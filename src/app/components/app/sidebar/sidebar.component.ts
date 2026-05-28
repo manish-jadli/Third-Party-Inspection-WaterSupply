@@ -30,7 +30,7 @@ export class SidebarComponent {
     {
       icon: 'bi-card-checklist',
       label: 'Inspections',
-      route: '/app/inspections',
+      route: '/app/inspection',
     },
     {
       icon: 'bi-map',

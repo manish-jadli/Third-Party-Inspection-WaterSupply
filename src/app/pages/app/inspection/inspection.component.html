@@ -1,0 +1,69 @@
+<div>
+
+    <section class="cards">
+      <div class="stat-card blue"><i class="bi bi-building"></i><div><span>Total Inspections</span><h3>1,652</h3><small>This Financial Year</small></div></div>
+      <div class="stat-card green"><i class="bi bi-check2-square"></i><div><span>Completed</span><h3>862</h3><small>52.2%</small></div></div>
+      <div class="stat-card blue"><i class="bi bi-clock"></i><div><span>In Progress</span><h3>386</h3><small>23.4%</small></div></div>
+      <div class="stat-card orange"><i class="bi bi-hourglass"></i><div><span>Pending</span><h3>312</h3><small>18.9%</small></div></div>
+      <div class="stat-card red"><i class="bi bi-exclamation-triangle"></i><div><span>NCR Raised</span><h3>92</h3><small>5.6%</small></div></div>
+    </section>
+
+    <section class="grid-2 inspections">
+      <div>
+        <div class="panel">
+          <h6>Inspection Status</h6>
+          <div class="donut"><span>1,652<br /><small>Total</small></span></div>
+        </div>
+
+        <div class="panel ncr">
+          <h6>NCR Summary</h6>
+          <div class="ncr-row">
+            <div>Open <b>48</b></div>
+            <div>In Progress <b>32</b></div>
+            <div>Resolved <b>74</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="tabs">
+          <button class="active">All Inspections</button>
+          <button>My Inspections</button>
+          <button>Pending Approval</button>
+          <button>NCR Raised</button>
+        </div>
+
+        <table class="table app-table">
+          <thead>
+            <tr>
+              <th>Inspection ID</th>
+              <th>Scheme Name</th>
+              <th>District</th>
+              <th>Inspection Type</th>
+              <th>Inspector / Agency</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Score</th>
+              <th>NCR</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of inspections">
+              <td class="link">{{ i.id }}</td>
+              <td>{{ i.scheme }}</td>
+              <td>{{ i.district }}</td>
+              <td>{{ i.type }}</td>
+              <td>{{ i.agency }}</td>
+              <td>{{ i.date }}</td>
+              <td><span class="badge-soft" [ngClass]="statusClass(i.status)">{{ i.status }}</span></td>
+              <td>{{ i.score }}</td>
+              <td>NCR: {{ i.ncr }}</td>
+              <td class="actions"><i class="bi bi-eye"></i><i class="bi bi-download"></i><i class="bi bi-three-dots"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+</div>
