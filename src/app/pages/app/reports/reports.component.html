@@ -1,6 +1,5 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 
-    <!-- HEADER -->
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
@@ -8,7 +7,6 @@
             Monthly Inspection Reports
         </h3>
 
-        <!-- ADD BUTTON -->
 
         <button
             *ngIf="role == 'TPI'"
@@ -22,7 +20,6 @@
 
     </div>
 
-    <!-- REPORT TABLE -->
 
     <div class="card shadow border-0">
 
@@ -121,7 +118,6 @@
 
                         <td>
 
-                            <!-- EDIT -->
 
                             <button
                                 *ngIf="
@@ -138,7 +134,6 @@
 
                             </button>
 
-                            <!-- APPROVE -->
 
                             <button
                                 *ngIf="
@@ -153,7 +148,6 @@
 
                             </button>
 
-                            <!-- REJECT -->
 
                             <button
                                 *ngIf="
@@ -180,7 +174,96 @@
 
     </div>
 
+</div> -->
+
+
+<div>
+
+    <section class="cards">
+      <div class="stat-card blue"><i class="bi bi-diagram-3"></i><div><span>Total Reports</span><h3>1,248</h3><small>100% of Total</small></div></div>
+      <div class="stat-card green"><i class="bi bi-clipboard-check"></i><div><span>Functional Reports</span><h3>1,096</h3><small>87.8% of Total</small></div></div>
+      <div class="stat-card orange"><i class="bi bi-cone-striped"></i><div><span>Under Construction</span><h3>98</h3><small>7.9% of Total</small></div></div>
+      <div class="stat-card purple"><i class="bi bi-trophy"></i><div><span>Completed</span><h3>54</h3><small>4.3% of Total</small></div></div>
+      <div class="stat-card red"><i class="bi bi-exclamation-octagon"></i><div><span>Non Functional</span><h3>54</h3><small>4.3% of Total</small></div></div>
+    </section>
+
+    <section class="grid-2">
+      <div class="panel">
+        <div class="panel-head">
+          <h6>Reports by District</h6>
+          <select><option>All Districts</option></select>
+        </div>
+
+        <div class="map-box">
+          <div class="fake-map">
+            <span style="left:38%;top:18%">Uttarkashi</span>
+            <span style="left:20%;top:45%">Dehradun</span>
+            <span style="left:48%;top:43%">Chamoli</span>
+            <span style="left:55%;top:66%">Almora</span>
+            <span style="left:72%;top:52%">Pithoragarh</span>
+          </div>
+
+          <ul class="district-list">
+            <li><b class="dot blue-bg"></b> Dehradun <span>156</span></li>
+            <li><b class="dot cyan-bg"></b> Uttarkashi <span>132</span></li>
+            <li><b class="dot green-bg"></b> Haridwar <span>118</span></li>
+            <li><b class="dot red-bg"></b> Pauri Garhwal <span>116</span></li>
+            <li><b class="dot orange-bg"></b> Chamoli <span>112</span></li>
+            <li><b class="dot purple-bg"></b> Almora <span>98</span></li>
+            <li><b class="dot teal-bg"></b> Rudraprayag <span>96</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h6>All Reports</h6>
+          <div class="filters">
+            <select><option>All Blocks</option></select>
+            <select><option>All Status</option></select>
+            <select><option>All Scheme Types</option></select>
+            <button class="btn btn-primary btn-sm"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#reportModal"><i class="bi bi-plus"></i> Add Report</button>
+          </div>
+        </div>
+
+        <table class="table app-table">
+          <thead>
+            <tr>
+              <th>Scheme Code</th>
+              <th>Scheme Name</th>
+              <th>District</th>
+              <th>Block</th>
+              <th>Status</th>
+              <th>Progress</th>
+              <th>Population</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of schemes">
+              <td>{{ s.code }}</td>
+              <td>{{ s.name }}</td>
+              <td>{{ s.district }}</td>
+              <td>{{ s.block }}</td>
+              <td><span class="badge-soft" [ngClass]="statusClass(s.status)">{{ s.status }}</span></td>
+              <td>
+                <small>{{ s.progress }}%</small>
+                <div class="progress"><div class="progress-bar" [style.width.%]="s.progress"></div></div>
+              </td>
+              <td>{{ s.population }}</td>
+              <td class="actions"><i class="bi bi-eye"></i><i class="bi bi-pencil-square"></i><i class="bi bi-three-dots"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  
 </div>
+
 
 <!-- REPORT MODAL -->
 
