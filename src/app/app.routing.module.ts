@@ -31,7 +31,7 @@ const routes: Routes = [
     path: 'sign-up',
     component: SignUpComponent,
   },
-    {
+  {
     path: 'forget-password',
     component: ForgetPasswordComponent,
   },
@@ -85,11 +85,11 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
       },
-         {
+      {
         path: 'schemes',
         component: SchemesComponent,
       },
-        {
+      {
         path: 'inspection',
         component: InspectionComponent,
       },
@@ -107,7 +107,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
